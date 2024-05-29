@@ -1,1 +1,1 @@
-# ultimate-react-boilerplate
+# Ultimate react boilerplate
