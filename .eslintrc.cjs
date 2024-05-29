@@ -11,7 +11,7 @@ module.exports = {
     'generators/*'
   ],
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
-  plugins: ['check-file'],
+  plugins: ['check-file', 'unused-imports'],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
@@ -42,6 +42,7 @@ module.exports = {
         'plugin:vitest/legacy-recommended',
         'plugin:prettier/recommended'
       ],
+      plugins: ['unused-imports'],
       rules: {
         'import/no-restricted-paths': [
           'error',
@@ -96,7 +97,6 @@ module.exports = {
         ],
         'import/no-cycle': 'error',
         'linebreak-style': ['error', 'unix'],
-        'react/prop-types': 'off',
         'import/order': [
           'error',
           {
@@ -116,7 +116,11 @@ module.exports = {
         'import/default': 'off',
         'import/no-named-as-default-member': 'off',
         'import/no-named-as-default': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+        'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react/no-unknown-property': ['off'],
         'jsx-a11y/anchor-is-valid': 'off',
         'jsx-a11y/anchor-has-content': ['off'],
         'jsx-a11y/heading-has-content': ['off'],
@@ -125,6 +129,23 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': ['off'],
         '@typescript-eslint/no-empty-function': ['off'],
         '@typescript-eslint/no-explicit-any': ['off'],
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          {
+            disallowTypeAnnotations: false
+          }
+        ], // Ensure `import type` is used when it's necessary
+        '@typescript-eslint/no-unused-expressions': 'off', // Allow usage of unused expressions
+        '@typescript-eslint/no-use-before-define': [
+          'error',
+          {
+            functions: true,
+            classes: true,
+            variables: true,
+            enums: true,
+            typedefs: true
+          }
+        ], // Allow usage of variables before they are defined
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
         'check-file/filename-naming-convention': [
           'error',
@@ -135,7 +156,6 @@ module.exports = {
             ignoreMiddleExtensions: true
           }
         ],
-        'react/no-unknown-property': ['off'],
         'tailwindcss/no-custom-classname': 'off'
       }
     },

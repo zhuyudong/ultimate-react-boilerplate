@@ -1,4 +1,5 @@
-import * as React from 'react'
+import type { ReactElement, ReactNode } from 'react'
+import { useEffect } from 'react'
 
 import { useDisclosure } from '@/hooks/use-disclosure'
 
@@ -15,10 +16,10 @@ import {
 
 type FormDrawerProps = {
   isDone: boolean
-  triggerButton: React.ReactElement
-  submitButton: React.ReactElement
+  triggerButton: ReactElement
+  submitButton: ReactElement
   title: string
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const FormDrawer = ({
@@ -30,7 +31,7 @@ export const FormDrawer = ({
 }: FormDrawerProps) => {
   const { close, open, isOpen } = useDisclosure()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isDone) {
       close()
     }

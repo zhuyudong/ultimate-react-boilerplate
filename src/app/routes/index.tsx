@@ -1,4 +1,4 @@
-import { QueryClient } from '@tanstack/react-query'
+import type { QueryClient } from '@tanstack/react-query'
 import { createBrowserRouter } from 'react-router-dom'
 
 import { ProtectedRoute } from '@/lib/auth'
