@@ -6,16 +6,16 @@
   "author": "yudong8.zhu@gmail.com",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky",
     "build": "tsc && vite build --base=/",
     "build-storybook": "storybook build",
     "dev": "vite",
     "generate": "plop",
-    "types:check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint src --ignore-path .gitignore",
+    "prepare": "husky",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "test": "vitest"
+    "test": "vitest",
+    "types:check": "tsc --project tsconfig.json --pretty --noEmit"
   },
   "lint-staged": {
     "*.+(ts|tsx)": [
