@@ -1,11 +1,12 @@
-import * as React from 'react'
+import type { ReactNode } from 'react'
+import { Fragment } from 'react'
 
 import logo from '@/assets/logo.svg'
 import { Head } from '@/components/seo'
 import { Link } from '@/components/ui/link'
 
 type LayoutProps = {
-  children: React.ReactNode
+  children: ReactNode
   title: string
 }
 

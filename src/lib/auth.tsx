@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react'
 import { configureAuth } from 'react-query-auth'
 import { Navigate, useLocation } from 'react-router-dom'
 import { z } from 'zod'
 
-import { AuthResponse, User } from '@/types/api'
+import type { AuthResponse, User } from '@/types/api'
 
 import { api } from './api-client'
 
@@ -72,7 +73,7 @@ const authConfig = {
 export const { useUser, useLogin, useLogout, useRegister, AuthLoader } =
   configureAuth(authConfig)
 
-export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const user = useUser()
   const location = useLocation()
 
